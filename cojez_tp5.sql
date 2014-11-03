@@ -1,0 +1,6 @@
+--Arnaud Cojez, L3S5, G4, TP5
+--E1Q1
+SELECT fid FROM Films
+EXCEPT
+SELECT DISTINCT film FROM Prix;
+
