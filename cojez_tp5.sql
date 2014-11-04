@@ -11,7 +11,6 @@ WHERE artiste IN (SELECT DISTINCT aid FROM Roles));
 --E1Q3
 INSERT INTO Prix
  VALUES (4,'meilleur gagnant de prix de meilleur acteur',2,123,'2012-12-12');
-
-artistes = acteurs + realisateurs
-realisateurs = artistes - acteurs
-realisateurs = realisateur FROM Films EXCEPT aid FROM Roles
+SELECT artiste FROM Prix GROUP BY artiste HAVING COUNT(pid) >= 2;
+DELETE FROM Prix
+ WHERE pid = 4;
