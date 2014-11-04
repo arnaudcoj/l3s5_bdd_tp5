@@ -14,3 +14,5 @@ INSERT INTO Prix
 SELECT artiste FROM Prix GROUP BY artiste HAVING COUNT(pid) >= 2;
 DELETE FROM Prix
  WHERE pid = 4;
+--E1Q4
+SELECT artiste FROM Prix INNER JOIN Films ON Prix.film = Films.fid WHERE Prix.an > Films.an;
