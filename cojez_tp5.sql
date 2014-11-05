@@ -16,3 +16,5 @@ DELETE FROM Prix
  WHERE pid = 4;
 --E1Q4
 SELECT artiste FROM Prix INNER JOIN Films ON Prix.film = Films.fid WHERE Prix.an > Films.an;
+--E1Q5
+SELECT aid AS artiste FROM Roles WHERE cout >= ALL (SELECT Cout FROM Roles);
