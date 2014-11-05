@@ -42,3 +42,8 @@ SELECT aid, cout FROM Roles
 EXCEPT
 SELECT aid, MAX(cout) FROM Roles GROUP BY aid;
 
+--E1Q8----------------------------------
+SELECT fid FROM Films WHERE NOT fid IN (SELECT DISTINCT film FROM Prix
+    WHERE nom = 'meilleur realisateur') AND an <= ALL (SELECT an FROM Films
+        WHERE NOT fid IN (SELECT DISTINCT film FROM Prix
+            WHERE nom = 'meilleur realisateur'));
