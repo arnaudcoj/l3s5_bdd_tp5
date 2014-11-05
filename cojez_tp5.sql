@@ -33,9 +33,12 @@ INSERT INTO Prix
 	VALUES(6,'meilleur acteur non protagoniste',3,876,'2012-12-12');
 
 SELECT artiste FROM (SELECT DISTINCT artiste, nom FROM Prix) AS ArtPrix GROUP BY artiste HAVING COUNT(nom) IN (SELECT COUNT(nom) FROM (SELECT DISTINCT nom FROM Prix) AS Categories);
-COUNT(SELECT DISTINCT nom FROM Prix);
 
 DELETE FROM Prix
  WHERE pid >= 4;
 
+--E1Q7----------------------------------
+SELECT aid, cout FROM Roles
+EXCEPT
+SELECT aid, MAX(cout) FROM Roles GROUP BY aid;
 
