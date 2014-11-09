@@ -1,4 +1,5 @@
 --Arnaud Cojez, L3S5, G4, TP5
+\i createFilms2.sql
 
 --E1Q1----------------------------------
 SELECT fid FROM Films
@@ -12,6 +13,7 @@ SELECT DISTINCT film FROM Prix
 WHERE artiste IN (SELECT DISTINCT aid FROM Roles));
 
 --E1Q3----------------------------------
+SELECT artiste FROM Prix GROUP BY artiste HAVING COUNT(pid) >= 2;
 INSERT INTO Prix
  VALUES (4,'meilleur gagnant de prix de meilleur acteur',2,123,'2012-12-12');
 SELECT artiste FROM Prix GROUP BY artiste HAVING COUNT(pid) >= 2;
@@ -22,9 +24,11 @@ DELETE FROM Prix
 SELECT artiste FROM Prix INNER JOIN Films ON Prix.film = Films.fid WHERE Prix.an > Films.an;
 
 --E1Q5----------------------------------
-SELECT aid AS artiste FROM Roles WHERE cout >= ALL (SELECT Cout FROM Roles);
+SELECT artiste FROM Prix WHERE artiste IN (SELECT aid FROM Roles WHERE cout >= ALL (SELECT Cout FROM Roles));
 
 --E1Q6----------------------------------
+SELECT artiste FROM (SELECT DISTINCT artiste, nom FROM Prix) AS ArtPrix GROUP BY artiste HAVING COUNT(nom) IN (SELECT COUNT(nom) FROM (SELECT DISTINCT nom FROM Prix) AS Categories);
+
 INSERT INTO Prix
 	VALUES(4,'meilleur realisateur',3,876,'2012-12-12');
 INSERT INTO Prix
