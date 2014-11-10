@@ -1,0 +1,7 @@
+Arnaud Cojez, L3S5, G4, TP5
+
+--E1Q1
+{t|\exists t1 \in Films (t[fid]=t1[fid]) \and \not \exists t2 \in Prix (t[film] = t2[film])}
+
+--E1Q2
+{t|\exists t1 \in Prix ((t[fid]=t1[fid] \and t[artiste]=t1[realisateur]) \and 
